@@ -15,9 +15,9 @@ app.use(express.static("./public"));
 app.use(express.json());
 
 // routes
-app.get("/", (req, res) => {
-  res.status(200).json({ success: true, msg: "Hello world." });
-});
+// app.get("/", (req, res) => {
+//   res.status(200).json({ success: true, msg: "Hello worldddd." });
+// });
 app.use("/api/v1", mainRouter);
 
 // post-hook middlewares
