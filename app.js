@@ -6,6 +6,7 @@ const app = express();
 
 // const connectDB = require("./db/connect");
 
+const mainRouter = require("./routes/main");
 const notFoundMiddleware = require("./middlewares/not-found");
 const errorHandlerMiddleware = require("./middlewares/error-handler");
 
@@ -17,6 +18,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.status(200).json({ success: true, msg: "Hello world." });
 });
+app.use("/api/v1", mainRouter);
 
 // post-hook middlewares
 app.use(notFoundMiddleware);
