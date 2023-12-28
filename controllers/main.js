@@ -25,10 +25,12 @@ const login = async (req, res) => {
     expiresIn: "30d",
   });
 
+  // send token as data.token
   res.status(200).json({ msg: "User created.", token });
 };
 
 const dashboard = async (req, res) => {
+  console.log(req.headers);
   const luckyNumber = Math.floor(Math.random() * 100);
   res.status(200).json({
     msg: "Hello, John Doe",
