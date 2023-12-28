@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const CustomAPIError = require("../errors/custom-error");
+const { BadRequestError } = require("../errors");
 
 // check username, password in POST request to /login
 // if exists >> create new JWT
@@ -13,7 +13,7 @@ const login = async (req, res) => {
   const { username, password } = req.body;
   // if not valid / don't exist >> please provide valid username and pw
   if (!username || !password) {
-    throw new CustomAPIError("Please provide valid email and password.", 400);
+    throw new BadRequestError("Please provide valid email and password.");
   }
   // if exists >> create new JWT
   // create dummy ID  (just for demo purpose! normally provided by DB.)
